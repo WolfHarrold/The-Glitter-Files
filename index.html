@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Glitter Files: who is buying all the glitter?</title>
+<meta name="description" content="A man, a corkboard and too much red string. Every dot about the great glitter mystery, connected. The facts are real. The connections are not to be trusted.">
+<meta property="og:title" content="The Glitter Files: who is buying all the glitter?">
+<meta property="og:description" content="Every dot about the great glitter mystery, connected with red string. Real facts, unhinged connections.">
+<meta name="theme-color" content="#2b0d33">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%232b0d33'/%3E%3Cpath d='M16 4l2.6 9.4L28 16l-9.4 2.6L16 28l-2.6-9.4L4 16l9.4-2.6z' fill='%23f3e6ff'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Permanent+Marker&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --hull: #2b0d33;
+    --hull-deep: #16061c;
+    --manila: #ecd9a0;
+    --manila-edge: #dcc27f;
+    --ink: #22131f;
+    --marker: #d61f2c;
+    --highlight: #fff04a;
+    --paint: #fff6fb;
+    --index-line: #b9cfe8;
+    --type: "Courier Prime", "Courier New", Courier, monospace;
+    --hand: "Permanent Marker", "Marker Felt", "Comic Sans MS", cursive;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--hull-deep);
+    color: var(--ink);
+    font-family: var(--type);
+    font-size: 17px;
+    line-height: 1.6;
+  }
+  @media (min-width: 720px) { body { font-size: 18px; } }
+
+  #hull { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; display: block; }
+  .page { position: relative; z-index: 1; }
+
+  a { color: inherit; }
+  :focus-visible { outline: 3px dashed var(--highlight); outline-offset: 4px; }
+
+  /* ---------- top bar ---------- */
+  .topbar {
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    padding: 14px clamp(16px, 4vw, 40px);
+    color: var(--paint);
+  }
+  .logo { font-family: var(--hand); font-size: 22px; text-decoration: none; line-height: 1; }
+  .topbar nav { display: flex; gap: 22px; font-size: 15px; }
+  .topbar nav a { text-decoration: none; border-bottom: 1px solid rgba(255,246,251,.35); padding-bottom: 1px; }
+  .topbar nav a:hover { border-bottom-color: var(--paint); }
+  .topbar .nav-extra { display: none; }
+  @media (min-width: 900px) { .topbar .nav-extra { display: inline; } }
+
+  /* ---------- shared layout ---------- */
+  .col { width: min(680px, calc(100% - 32px)); margin: 0 auto; }
+  .wide { width: min(1080px, calc(100% - 24px)); margin: 0 auto; }
+
+  .on-hull { color: var(--paint); text-shadow: 0 2px 10px rgba(10,0,14,.9), 0 0 2px rgba(10,0,14,.9); }
+
+  .marker-h {
+    font-family: var(--hand); font-weight: 400; color: var(--paint);
+    font-size: clamp(34px, 7vw, 56px); line-height: 1.05; margin: 0 0 6px;
+    text-shadow: 0 3px 14px rgba(10,0,14,.85);
+  }
+
+  /* ---------- hero ---------- */
+  .hero { padding: clamp(28px, 6vw, 70px) 0 20px; }
+  .postmeta { margin: 0 0 14px; font-size: 15px; opacity: .92; }
+  h1 {
+    font-family: var(--hand); font-weight: 400; color: var(--paint);
+    font-size: clamp(54px, 13vw, 128px); line-height: .95; letter-spacing: -.01em;
+    margin: 0 0 clamp(28px, 5vw, 48px); max-width: 11ch;
+    text-shadow: 0 4px 22px rgba(10,0,14,.85), 0 0 2px rgba(10,0,14,.6);
+    transform: rotate(-2deg); transform-origin: left center;
+  }
+
+  .paper {
+    position: relative;
+    background: linear-gradient(170deg, #f1e1ad 0%, var(--manila) 45%, #e5cf8f 100%);
+    border-radius: 2px;
+    box-shadow: 0 1px 0 var(--manila-edge) inset, 0 18px 40px rgba(8,0,12,.55), 0 3px 8px rgba(8,0,12,.35);
+  }
+  .paper::before { /* tape */
+    content: ""; position: absolute; top: -13px; left: 50%; width: 112px; height: 28px;
+    transform: translateX(-50%) rotate(-3deg);
+    background: rgba(255,251,230,.55);
+    box-shadow: 0 1px 3px rgba(0,0,0,.15);
+    backdrop-filter: blur(1px);
+  }
+
+  .clipping { padding: 26px clamp(20px, 4vw, 34px) 24px; transform: rotate(-1.2deg); margin: 0; }
+  .clipping figcaption { font-size: 15px; line-height: 1.5; margin-bottom: 14px; }
+  .clipping blockquote {
+    margin: 0; font-weight: 700; font-size: clamp(22px, 4.6vw, 30px); line-height: 1.35;
+  }
+  .clipping .cite { display: block; margin-top: 12px; font-size: 14px; font-weight: 400; }
+  .circled { position: relative; white-space: nowrap; display: inline-block; }
+  .circled svg {
+    position: absolute; left: -0.45em; top: -0.42em;
+    width: calc(100% + 0.9em); height: calc(100% + 0.84em);
+    overflow: visible; pointer-events: none;
+  }
+  .circled path {
+    fill: none; stroke: var(--marker); stroke-width: 3.2; stroke-linecap: round;
+    vector-effect: non-scaling-stroke;
+    stroke-dasharray: 1; stroke-dashoffset: 1;
+    animation: draw 0.9s 0.5s cubic-bezier(.6,.1,.3,1) forwards;
+  }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+
+  .hero-note {
+    font-family: var(--hand); color: var(--marker); font-size: 26px; line-height: 1.1;
+    margin: 14px 0 0; transform: rotate(-3deg);
+    opacity: 0; animation: appear .3s 1.4s forwards;
+  }
+  @keyframes appear { to { opacity: 1; } }
+
+  .intro { margin-top: 34px; font-size: 18px; }
+  .intro p { margin: 0 0 12px; }
+
+  /* ---------- board ---------- */
+  .board-section { padding: 56px 0 10px; }
+  .board-head { width: min(1080px, calc(100% - 24px)); margin: 0 auto 16px; }
+  .board-head p { margin: 0; font-size: 15px; }
+
+  .board {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    border: 12px solid #5b3a1e;
+    border-radius: 3px;
+    background-color: #c08a55;
+    background-image:
+      radial-gradient(circle at 30% 30%, rgba(92,52,22,.38) 0 1.1px, transparent 1.6px),
+      radial-gradient(circle at 70% 60%, rgba(255,232,195,.28) 0 1px, transparent 1.5px),
+      radial-gradient(circle at 40% 80%, rgba(84,44,16,.30) 0 1.5px, transparent 2px),
+      radial-gradient(ellipse at 50% 40%, rgba(255,220,170,.18), transparent 70%);
+    background-size: 7px 7px, 11px 9px, 13px 15px, 100% 100%;
+    box-shadow: inset 0 0 40px rgba(60,30,10,.5), 0 24px 50px rgba(8,0,12,.6);
+  }
+  .board::after { /* frame bevel */
+    content: ""; position: absolute; inset: -12px; border-radius: 3px; pointer-events: none;
+    box-shadow: inset 0 0 0 1px rgba(255,220,170,.25), inset 0 2px 0 12px rgba(0,0,0,0);
+  }
+  .strings { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 2; pointer-events: none; overflow: visible; }
+  .strings path {
+    fill: none; stroke: #d81e2a; stroke-width: 2.2; stroke-linecap: round;
+    filter: drop-shadow(0 2px 1.5px rgba(40,10,5,.45));
+    stroke-dasharray: 1; stroke-dashoffset: 1;
+  }
+  .board.drawn .strings path { transition: stroke-dashoffset .7s cubic-bezier(.5,.1,.3,1); stroke-dashoffset: 0; }
+
+  .pol, .hub {
+    position: absolute; left: var(--x); top: var(--y);
+    transform: translate(-50%, -50%) rotate(var(--r, 0deg));
+    z-index: 3;
+  }
+  .pol {
+    width: clamp(78px, 11.2%, 130px);
+    container-type: inline-size;
+    background: #fbfaf4; padding: 8px 8px 9px;
+    text-decoration: none; color: var(--ink);
+    box-shadow: 0 6px 14px rgba(40,15,5,.45), 0 1px 2px rgba(40,15,5,.4);
+    transition: transform .15s ease;
+  }
+  .pol:hover { transform: translate(-50%, -50%) rotate(var(--r, 0deg)) scale(1.06); z-index: 5; }
+  .pol .photo {
+    display: grid; place-items: center; aspect-ratio: 1; padding: 6%;
+    background: var(--bg, #333);
+    font-family: var(--hand); color: #fff; text-align: center;
+    font-size: 17cqi; line-height: 1.02;
+    text-shadow: 0 1px 3px rgba(0,0,0,.6);
+  }
+  .pol .cap { display: block; margin-top: 6%; font-size: max(10px, 9.2cqi); line-height: 1.2; text-align: center; }
+  .pin {
+    position: absolute; top: -6px; left: 50%; width: 14px; height: 14px; margin-left: -7px; border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #ff8a8a, #c3101c 55%, #6e0710);
+    box-shadow: 0 3px 4px rgba(40,10,5,.5);
+    z-index: 4;
+  }
+  .hub {
+    width: clamp(124px, 24%, 250px);
+    background: var(--marker); color: #fff;
+    padding: 18px 14px 16px; text-align: center;
+    font-family: var(--hand); font-size: clamp(19px, 2.6vw, 30px); line-height: 1.05;
+    box-shadow: 0 8px 18px rgba(40,10,5,.5);
+  }
+  .hub .pin { background: radial-gradient(circle at 35% 30%, #fff7a8, #e2c200 55%, #7a6400); }
+
+  @media (max-width: 720px) {
+    .board { aspect-ratio: 10 / 17; border-width: 9px; }
+    .pol, .hub { left: var(--mx); top: var(--my); }
+    .pol { width: 24%; padding: 6px 6px 7px; }
+    .pol .cap { font-size: 10px; line-height: 1.15; }
+    .hub { width: 36%; font-size: 18px; padding: 14px 8px 12px; }
+  }
+
+  /* ---------- exhibits ---------- */
+  .evidence { padding: 70px 0 20px; }
+  .evidence > .col > .marker-h { margin-bottom: 26px; }
+
+  .exhibit {
+    padding: 30px clamp(20px, 4vw, 36px) 26px;
+    margin: 0 0 54px;
+    transform: rotate(var(--tilt, -0.5deg));
+    scroll-margin-top: 30px;
+  }
+  .exhibit:nth-of-type(even) { --tilt: 0.6deg; }
+  .exhibit h3 {
+    font-size: clamp(21px, 4.2vw, 27px); line-height: 1.2; margin: 0 0 14px; padding-right: 92px;
+  }
+  .exhibit h3 .ex { display: block; font-weight: 400; font-size: 15px; margin-bottom: 2px; }
+  .exhibit p { margin: 0 0 12px; }
+  .exhibit mark { background: linear-gradient(transparent 12%, rgba(255,240,74,.85) 12%, rgba(255,240,74,.85) 88%, transparent 88%); color: inherit; padding: 0 2px; }
+
+  .stamp {
+    position: absolute; top: 22px; right: 14px;
+    font-family: var(--type); font-weight: 700; font-size: 14px; letter-spacing: .06em; text-transform: uppercase;
+    padding: 4px 9px 3px; border: 3px solid currentColor; border-radius: 4px;
+    transform: rotate(8deg); opacity: .86;
+    mix-blend-mode: multiply;
+    background: transparent;
+  }
+  .s-confirmed { color: #1d6e37; }
+  .s-half { color: #a85d00; }
+  .s-notit { color: #b5121f; }
+  .s-unexplained { color: #2346a0; }
+  .s-coincidence { color: #6a2a8a; }
+  .s-debunked { color: #b5121f; }
+  .s-probably { color: #b5121f; font-size: 16px; border-width: 4px; }
+
+  .scrawl {
+    font-family: var(--hand); color: var(--marker); font-size: 23px; line-height: 1.12;
+    margin: 4px 0 16px; transform: rotate(-2.5deg); transform-origin: left;
+  }
+  @media (min-width: 1180px) {
+    .exhibit .scrawl {
+      position: absolute; top: 70px; left: calc(100% + 34px); width: 230px; margin: 0;
+      color: #ff5a64; font-size: 26px;
+      text-shadow: 0 2px 10px rgba(10,0,14,.9);
+      transform: rotate(-4deg);
+    }
+    .exhibit:nth-of-type(even) .scrawl { left: auto; right: calc(100% + 34px); text-align: right; transform: rotate(3deg); }
+  }
+
+  .truth {
+    margin: 18px 0 0;
+    background-color: #fbfbf7;
+    background-image: linear-gradient(#e2575f, #e2575f), linear-gradient(transparent 27px, var(--index-line) 27px, var(--index-line) 28px);
+    background-size: 100% 2px, 100% 28px;
+    background-position: 0 38px, 0 10px;
+    background-repeat: no-repeat, repeat;
+    padding: 10px 16px 12px;
+    font-size: 16px; line-height: 28px;
+    box-shadow: 0 4px 10px rgba(40,20,0,.25);
+    transform: rotate(0.6deg);
+  }
+  .truth h4 { margin: 0 0 12px; font-size: 16px; font-weight: 700; font-style: italic; line-height: 28px; }
+  .truth p { margin: 0; }
+
+  .redact {
+    font: inherit; border: 0; cursor: pointer; padding: 0 4px; margin: 0;
+    display: inline; text-align: left; line-height: inherit;
+    -webkit-box-decoration-break: clone; box-decoration-break: clone;
+    background: #1a0918; color: transparent; border-radius: 1px;
+    text-shadow: none;
+  }
+  .redact[aria-expanded="true"] { background: rgba(255,240,74,.85); color: var(--ink); cursor: default; }
+  .redact .hint { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+
+  /* ---------- graveyard ---------- */
+  .graveyard { padding: 30px 0 30px; }
+  .notebook {
+    position: relative;
+    background-color: #fdfdf9;
+    background-image:
+      linear-gradient(90deg, transparent 46px, #e8888d 46px, #e8888d 48px, transparent 48px),
+      linear-gradient(transparent 31px, #c6d6ea 31px, #c6d6ea 32px);
+    background-size: 100% 100%, 100% 32px;
+    background-position: 0 0, 0 24px;
+    padding: 30px 20px 26px 62px;
+    line-height: 32px;
+    transform: rotate(-0.8deg);
+    box-shadow: 0 18px 40px rgba(8,0,12,.55);
+    clip-path: polygon(0 6px, 4% 0, 9% 5px, 15% 1px, 21% 6px, 27% 0, 34% 5px, 41% 1px, 48% 6px, 55% 0, 62% 5px, 69% 1px, 76% 6px, 83% 0, 90% 5px, 96% 1px, 100% 5px, 100% 100%, 0 100%);
+  }
+  .notebook ul { list-style: none; margin: 0; padding: 0; }
+  .notebook li { margin: 0; }
+  .notebook .dead { font-family: var(--hand); font-size: 22px; text-decoration: line-through; text-decoration-color: var(--marker); text-decoration-thickness: 3px; }
+  .notebook .alive { font-family: var(--hand); font-size: 22px; color: var(--marker); }
+  .notebook .why { font-size: 15px; display: block; line-height: 32px; margin: 0; }
+
+  /* ---------- finale ---------- */
+  .finale { padding: 80px 0 40px; }
+  .finale .big {
+    font-family: var(--hand); color: var(--paint); font-size: clamp(42px, 9.5vw, 96px); line-height: 1; margin: 0 0 30px;
+    text-shadow: 0 4px 22px rgba(10,0,14,.85);
+  }
+  .finale .panel {
+    background: rgba(22,6,28,.62); color: var(--paint);
+    padding: 22px clamp(18px, 4vw, 30px); border-left: 4px solid var(--marker);
+    font-size: 19px;
+  }
+  .finale .panel p { margin: 0 0 12px; }
+  .finale .panel p:last-child { margin: 0; }
+  .finale .redact { background: var(--paint); }
+  .finale .redact[aria-expanded="true"] { background: var(--highlight); color: var(--ink); }
+
+  .verdict { display: flex; flex-wrap: wrap; gap: 18px 28px; align-items: center; margin: 46px 0 0; }
+  .verdict .stamp { position: static; font-size: clamp(18px, 4vw, 26px); border-width: 5px; padding: 8px 14px 6px; mix-blend-mode: normal; opacity: 1; background: rgba(251,251,247,.94); }
+  .verdict .stamp:last-child { transform: rotate(-5deg); }
+
+  /* ---------- footer ---------- */
+  .footer { padding: 60px 0 70px; }
+  .casenotes { padding: 28px clamp(20px, 4vw, 34px) 24px; transform: rotate(0.4deg); font-size: 15px; line-height: 1.55; }
+  .casenotes h2 { font-size: 20px; margin: 0 0 10px; }
+  .casenotes h3 { font-size: 16px; margin: 22px 0 8px; }
+  .casenotes p { margin: 0 0 10px; }
+  .casenotes ol { margin: 0; padding-left: 22px; }
+  .casenotes li { margin-bottom: 6px; }
+  .casenotes a { text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  .back { display: inline-block; margin-top: 28px; font-family: var(--hand); font-size: 24px; color: var(--paint); text-decoration: none; border-bottom: 2px solid rgba(255,246,251,.5); text-shadow: 0 2px 10px rgba(10,0,14,.9); }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .circled path { animation: none; stroke-dashoffset: 0; }
+    .hero-note { animation: none; opacity: 1; }
+    .strings path, .board.drawn .strings path { transition: none; stroke-dashoffset: 0; }
+    .pol { transition: none; }
+  }
+</style>
+</head>
+<body>
+<canvas id="hull" aria-hidden="true"></canvas>
+
+<div class="page">
+  <header class="topbar">
+    <a class="logo" href="#top">The Glitter Files</a>
+    <nav aria-label="Page">
+      <a class="nav-extra" href="#board">The board</a>
+      <a class="nav-extra" href="#evidence">Evidence</a>
+      <a class="nav-extra" href="#sources">Sources</a>
+      <a href="https://wolfharrold.com/">Back to wolfharrold.com</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- ================= HERO ================= -->
+    <section class="hero col">
+      <p class="postmeta on-hull">Entry 47. Posted at 3:14 am. I haven’t slept since the podcast.</p>
+      <h1>Who is buying all the glitter?</h1>
+
+      <figure class="clipping paper">
+        <figcaption>New York Times Magazine, 21 December 2018. A reporter asks a manager at Glitterex, a New Jersey glitter factory, which industry buys the most glitter. The manager knows, and won’t say. The reporter asks why.</figcaption>
+        <blockquote>
+          “Because they don’t want anyone to know that <span class="circled">it’s glitter<svg viewBox="0 0 200 60" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M26,36 C14,16 66,4 112,5 C160,6 198,16 194,34 C190,52 134,59 92,57 C44,55 6,47 10,30 C13,19 38,10 74,8"/></svg></span>.”
+        </blockquote>
+        <p class="hero-note">What is “it”?!</p>
+      </figure>
+
+      <div class="intro on-hull">
+        <p>That was nearly eight years ago. Nobody has officially answered.</p>
+        <p>So I pinned everything I could find to a board and started connecting the dots. Every dot is real, and the sources are at the bottom. The red string is all mine. I’m sorry in advance.</p>
+      </div>
+    </section>
+
+    <!-- ================= BOARD ================= -->
+    <section class="board-section" id="board" aria-labelledby="board-title">
+      <div class="board-head">
+        <h2 class="marker-h" id="board-title">The board</h2>
+        <p class="on-hull">Tap a photo to jump to its evidence.</p>
+      </div>
+      <div class="wide">
+        <div class="board" id="boardEl">
+          <svg class="strings" id="strings" aria-hidden="true"></svg>
+
+          <div class="hub" data-node="hub" style="--x:50%;--y:50%;--mx:50%;--my:50%;--r:-2deg"><span class="pin"></span>Who buys the glitter?</div>
+
+          <a class="pol" href="#ex-a" data-node="nj"    style="--x:9%;--y:18%;--mx:17%;--my:10.5%;--r:-5deg;--bg:linear-gradient(160deg,#6f7377,#3b3f44)"><span class="pin"></span><span class="photo">NJ</span><span class="cap">two secret factories</span></a>
+          <a class="pol" href="#ex-b" data-node="1934"  style="--x:29%;--y:16%;--mx:50%;--my:10.5%;--r:3deg;--bg:linear-gradient(160deg,#a07a4f,#5a3f24)"><span class="pin"></span><span class="photo">1934</span><span class="cap">a farmer’s machine</span></a>
+          <a class="pol" href="#ex-c" data-node="bomb"  style="--x:50%;--y:17%;--mx:83%;--my:10.5%;--r:-2deg;--bg:radial-gradient(circle at 50% 70%,#fff4c2,#f29a2e 40%,#5a2410 80%)"><span class="pin"></span><span class="photo">The bomb</span><span class="cap">Manhattan Project</span></a>
+          <a class="pol" href="#ex-f" data-node="dec18" style="--x:71%;--y:16%;--mx:17%;--my:30%;--r:4deg;--bg:linear-gradient(160deg,#b98b55,#7a5530)"><span class="pin"></span><span class="photo">Dec 2018</span><span class="cap">glitter bomb week</span></a>
+          <a class="pol" href="#ex-d" data-node="chaff" style="--x:91%;--y:18%;--mx:83%;--my:30%;--r:-4deg;--bg:radial-gradient(circle at 30% 30%,#3a4a6e,#0f1426 75%)"><span class="pin"></span><span class="photo">Chaff</span><span class="cap">radar confetti</span></a>
+          <a class="pol" href="#ex-e" data-node="devil" style="--x:11%;--y:50%;--mx:15%;--my:50%;--r:3deg;--bg:linear-gradient(160deg,#9b1b1b,#3a0606)"><span class="pin"></span><span class="photo">The Devil</span><span class="cap">a German machine</span></a>
+          <a class="pol" href="#ex-k" data-node="boats" style="--x:89%;--y:50%;--mx:85%;--my:50%;--r:-3deg;--bg:radial-gradient(circle at 40% 35%,#9a3bb0,#3b0f4a 70%)"><span class="pin"></span><span class="photo">Boats</span><span class="cap">metalflake</span></a>
+          <a class="pol" href="#ex-g" data-node="zoo"   style="--x:13%;--y:83%;--mx:17%;--my:70%;--r:-4deg;--bg:linear-gradient(160deg,#5f7d3a,#2c3d17)"><span class="pin"></span><span class="photo">Zoo poo</span><span class="cap">wombats on Weet-Bix</span></a>
+          <a class="pol" href="#ex-h" data-node="fbi"   style="--x:37%;--y:84%;--mx:70%;--my:89.5%;--r:2deg;--bg:linear-gradient(160deg,#4d5a68,#1d242c)"><span class="pin"></span><span class="photo">FBI</span><span class="cap">a glitter library</span></a>
+          <a class="pol" href="#ex-i" data-node="tiktok" style="--x:63%;--y:84%;--mx:30%;--my:89.5%;--r:-3deg;--bg:linear-gradient(135deg,#25f4ee 0 8%,#111 8% 92%,#fe2c55 92%)"><span class="pin"></span><span class="photo">TikTok</span><span class="cap">the fake shortage</span></a>
+          <a class="pol" href="#ex-j" data-node="eu"    style="--x:87%;--y:83%;--mx:83%;--my:70%;--r:4deg;--bg:radial-gradient(circle,#1e46a8,#0c2463 75%)"><span class="pin"></span><span class="photo">EU ban</span><span class="cap">the paint loophole</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= EVIDENCE ================= -->
+    <section class="evidence" id="evidence" aria-labelledby="evidence-title">
+      <div class="col">
+        <h2 class="marker-h" id="evidence-title">The evidence</h2>
+
+        <article class="exhibit paper" id="ex-a">
+          <span class="stamp s-confirmed">Confirmed</span>
+          <h3><span class="ex">Exhibit A</span>Two factories, one state</h3>
+          <p>Most of the glitter on America’s name-brand products comes from two factories. Both are in New Jersey. Glitterex is in Cranford, founded 1963. Meadowbrook Inventions is in Bernardsville, and it’s the original.</p>
+          <p>The reporter wasn’t allowed to see glitter being made. She wasn’t even allowed to <mark>hear</mark> it being made. Out of all Glitterex’s clients, exactly one agreed to be named: Revlon.</p>
+          <p class="scrawl">You can’t even LISTEN to it??</p>
+          <aside class="truth"><h4>The boring truth</h4><p>Factories guard their machines and client lists all the time. A business lecturer on the podcast Endless Thread had a name for it: “It’s called good business.”</p></aside>
+        </article>
+
+        <article class="exhibit paper" id="ex-b">
+          <span class="stamp s-confirmed">Confirmed</span>
+          <h3><span class="ex">Exhibit B</span>A farmer’s trash machine</h3>
+          <p>1934. Henry Ruschmann, a New Jersey machinist who kept Guernsey cows, builds a high-speed machine that cuts apart rolls of people’s glossy photo prints. When it stutters, it sprays shiny scraps across the floor. His workers take them home as snow for their Christmas trees. He calls them <mark>schnibbles</mark>.</p>
+          <p>In World War II, glass glitter dries up, so he starts grinding up scrap plastic instead. By 1948 he’s making 80 pounds of glitter a day on the farm. The glitter pays for the cows.</p>
+          <p class="scrawl">Trash in. Sparkle out. Cows funded.</p>
+          <aside class="truth"><h4>The boring truth</h4><p>This is just glitter’s origin story, and it’s well documented. He filed four patents on cutting film and foil, and his company now sells over 20,000 kinds of glitter. People have loved shiny stuff for a long time: Egyptians put ground malachite in make-up, and the Maya mixed mica into temple paint.</p></aside>
+        </article>
+
+        <article class="exhibit paper" id="ex-c">
+          <span class="stamp s-half">Half true</span>
+          <h3><span class="ex">Exhibit C</span>The man who made glitter helped make the bomb</h3>
+          <p>In 2023 a YouTuber called Chuppl tracked down Ruschmann’s son. His story: in World War II, the US government hired his father to cut mica washers for the atomic bomb. An old New Jersey newspaper clipping says he worked on the Manhattan Project too.</p>
+          <p>Chuppl’s video came out on 30 June 2023. Three weeks later, <mark>Barbie and Oppenheimer opened in cinemas on the same day</mark>.</p>
+          <p class="scrawl">Barbenheimer was a confession.</p>
+          <aside class="truth"><h4>The boring truth</h4><p>Glitter came first. It dates to 1934, and the Manhattan Project started in 1942. He got the job because he was good at precision cutting, not because the bomb needed glitter. The only evidence is his son’s word and one clipping. Even the video’s makers said it had nothing to do with how glitter was created.</p></aside>
+        </article>
+
+        <article class="exhibit paper" id="ex-d">
+          <span class="stamp s-notit">Not it</span>
+          <h3><span class="ex">Exhibit D</span>The military already throws shiny stuff at radar</h3>
+          <p>In World War II, the British dropped clouds of aluminium-coated paper strips to fill German radar screens with fake echoes. It’s called chaff, and fighter jets still carry it. The US Army even considered shooting glitter out of the back of planes.</p>
+          <p class="scrawl">Military-grade confetti.</p>
+          <aside class="truth"><h4>The boring truth</h4><p>Chaff isn’t craft glitter, and the Army never went ahead with the glitter idea. A defence aviation analyst told Endless Thread that radar-absorbing materials are built to very exact specs. Glitter would make a plane easier to spot, not harder.</p></aside>
+        </article>
+
+        <article class="exhibit paper" id="ex-e">
+          <span class="stamp s-unexplained">Unexplained</span>
+          <h3><span class="ex">Exhibit E</span>A barn in Germany and a machine called The Devil</h3>
+          <p>Around 1999, Joe Coburn’s father found two old glitter machines in a tiny German village. Buyers offered him €120,000 to €140,000 for one, nearly sight unseen. He only let them look through a barn window. They wanted to copy it.</p>
+          <p>His father compared glitter’s profit margins to cocaine: you sell it by the gram and customers buy it by the tonne. Today the family runs 22 machines, and one has a name. <mark>The Devil.</mark> It cuts one material for one customer. What material? <span class="redact" role="button" tabindex="0" aria-expanded="false"><span class="hint">Reveal: </span>Nobody will say. Not even to the podcast.</span></p>
+          <p class="scrawl">A SECOND secret customer!!</p>
+          <aside class="truth"><h4>The boring truth</h4><p>Products made for one client are confidential in every industry. And the cocaine margins are gone: prices have fallen to a third or a quarter of what they were, as competition grew in China and Taiwan.</p></aside>
+        </article>
+
+        <article class="exhibit paper" id="ex-f">
+          <span class="stamp s-coincidence">Coincidence?</span>
+          <h3><span class="ex">Exhibit F</span>The same week</h3>
+          <p>Friday 21 December 2018: the New York Times asks who buys the glitter. That Monday, a former NASA engineer posted a video of a fake parcel that blasts thieves with a pound of glitter and fart spray. It racked up over 42 million views in four days.</p>
+          <p>Everybody was talking about glitter. Nobody was asking who buys it.</p>
+          <p class="scrawl">Distraction? DISTRACTION.</p>
+          <aside class="truth"><h4>The boring truth</h4><p>Mark Rober was getting back at the people who stole his parcels. It has nothing to do with the mystery, except that both stories went viral at once. That’s why people still mix them up. As far as anyone can find, neither he nor Veritasium has made a video about the mystery itself.</p></aside>
+        </article>
+
+        <article class="exhibit paper" id="ex-g">
+          <span class="stamp s-confirmed">Confirmed</span>
+          <h3><span class="ex">Exhibit G</span>They’re feeding it to wombats</h3>
+          <p>Zoos feed animals glitter so they can tell whose poo is whose. At Assiniboine Park Zoo in Canada, every polar bear gets its own colour. The Smithsonian’s zoo has done it with red pandas and cheetahs.</p>
+          <p>And here in Australia, researchers fed glitter to southern hairy-nosed wombats in <mark>golden syrup on Weet-Bix</mark>. It came out the other end in about three days.</p>
+          <p class="scrawl">WEET-BIX. They put it in WEET-BIX.</p>
+          <aside class="truth"><h4>The boring truth</h4><p>This is real science. Zoos test droppings for hormones to check on an animal’s health, and the glitter passes straight through. A few grams per animal won’t make anyone the world’s biggest buyer.</p></aside>
+        </article>
+
+        <article class="exhibit paper" id="ex-h">
+          <span class="stamp s-confirmed">Confirmed</span>
+          <h3><span class="ex">Exhibit H</span>The FBI has a glitter library</h3>
+          <p>There are tens of thousands of different glitters, and they cling to people without anyone noticing. That makes glitter almost perfect trace evidence. FBI Laboratory chemists have matched glitter at a crime scene to glitter in a suspect’s car.</p>
+          <p>Forensic scientist Edwin Jones keeps one of the biggest glitter collections in the world: <mark>more than 1,000 samples</mark>.</p>
+          <p class="scrawl">They’re CATALOGUING it.</p>
+          <aside class="truth"><h4>The boring truth</h4><p>Forensic scientists collect glitter to solve crimes, not to buy it by the drum. Their pro tip: the sticky strip on a sticky note picks glitter up better than tape.</p></aside>
+        </article>
+
+        <article class="exhibit paper" id="ex-i">
+          <span class="stamp s-debunked">Debunked</span>
+          <h3><span class="ex">Exhibit I</span>The great glitter shortage of 2022</h3>
+          <p>October 2022. A TikTok acting out the reporter’s phone call gets about 6.4 million plays in ten days. Suddenly everyone “knows” there’s a glitter shortage, and that someone is hoarding it.</p>
+          <p class="scrawl">WHO IS HOARDING IT</p>
+          <aside class="truth"><h4>The boring truth</h4><p>Nobody. The Deseret News looked into it and found no credible source for a glitter shortage.</p></aside>
+        </article>
+
+        <article class="exhibit paper" id="ex-j">
+          <span class="stamp s-confirmed">Confirmed</span>
+          <h3><span class="ex">Exhibit J</span>A ban with a paint-shaped loophole</h3>
+          <p>17 October 2023. The European Union bans loose plastic glitter in things like craft kits and toys. Make-up gets until 2035.</p>
+          <p>But glitter that’s locked inside <mark>paint, glue or ink</mark>? Not affected. So which industry seals its glitter inside a hard, shiny coat?</p>
+          <p class="scrawl">Look at the hulls.</p>
+          <aside class="truth"><h4>The boring truth</h4><p>The ban targets glitter that can escape into the environment, and glitter sealed in a coating mostly can’t. Australia has no ban. In December 2023, a University of the Sunshine Coast microbiologist called glitter “microplastics in disguise” and asked Australia to review it.</p></aside>
+        </article>
+
+        <article class="exhibit paper" id="ex-k">
+          <span class="stamp s-probably">Probably it</span>
+          <h3><span class="ex">Exhibit K</span>The boats</h3>
+          <p>In 2019 the Endless Thread podcast got a tip from inside the paint industry. A Glitterex customer’s colleague asked at a supplier meeting, and was told: <mark>boat manufacturers</mark>.</p>
+          <p>A gel coat chemist backed it up. In the 90s he worked at a bass boat factory that went through about ten 30-gallon drums of glitter a week. His company buys Glitterex glitter through a distributor near Memphis. And Glitterex’s own company blurb lists gel coat as the first industry it serves. Before paint. Before make-up. Before crafts.</p>
+          <p>Boat parts shops sell it by brand. You can buy 8-ounce bags of “glitter flake” under Tracker Boats and MasterCraft part numbers, for touching up a hull. A fibreglass supplier sells “Glitterflake” for repairing bass boats: <mark>up to 20% of the gel coat, by weight</mark>.</p>
+          <p>In the original 2018 article, the manager also said “it” doesn’t look like glitter. Then she changed the subject to automotive-grade pigments. The reporter’s own list of things secretly full of glitter included a jet ski paint job.</p>
+          <p>Here’s the bit that gets me. Bass fishermen don’t call it glitter. They call it <mark>metalflake</mark>. On a boating forum, one owner sanding back his old hull realised he actually had glitter, not metalflake, and asked if that was even possible. They don’t want anyone to know it’s glitter.</p>
+          <p class="scrawl">IT’S THE BOATS</p>
+          <aside class="truth"><h4>The boring truth</h4><p>This is the best answer anyone has, but it’s secondhand. Glitterex declined to comment and has never confirmed it. The runner-up, car paint, fell over when a car paint colour lab said it uses “effect pigments” and didn’t know of ever buying from Glitterex.</p></aside>
+        </article>
+      </div>
+    </section>
+
+    <!-- ================= GRAVEYARD ================= -->
+    <section class="graveyard col" id="graveyard" aria-labelledby="grave-title">
+      <h2 class="marker-h" id="grave-title">Theories I’ve had to kill</h2>
+      <div class="notebook">
+        <ul>
+          <li><span class="dead">Make-up</span><span class="why">Uses plenty, but it’s not the secret. Everyone knows make-up has glitter in it.</span></li>
+          <li><span class="dead">Greeting cards</span><span class="why">Same problem. Nobody’s hiding a sparkly birthday card.</span></li>
+          <li><span class="dead">Strip clubs</span><span class="why">Not even close to enough.</span></li>
+          <li><span class="dead">Resort beach sand</span><span class="why">Glitter ends up in the ocean by accident. Nobody’s doing it on purpose.</span></li>
+          <li><span class="dead">Food</span><span class="why">Checked. No.</span></li>
+          <li><span class="dead">Money and passports</span><span class="why">Some security features use holographic film, but not by the drum.</span></li>
+          <li><span class="dead">Pepper spray</span><span class="why">To mark people who’ve been sprayed? Checked. No.</span></li>
+          <li><span class="dead">Car paint</span><span class="why">Car makers use engineered “effect pigments” instead. See Exhibit K.</span></li>
+          <li><span class="dead">Toothpaste</span><span class="why">The sparkles in Crest Kids Sparkle Fun are mica and titanium dioxide. Sorry, toothpaste.</span></li>
+          <li><span class="dead">Plywood</span><span class="why">Real: some plywood hides layers of coloured glitter to stop counterfeits. Still not enough to buy it by the drum.</span></li>
+          <li><span class="alive">Something you’d never guess</span><span class="why">That’s what the manager promised. The case stays open.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ================= FINALE ================= -->
+    <section class="finale col" id="finale" aria-labelledby="finale-title">
+      <p class="ex on-hull" style="margin:0 0 6px;font-size:15px">Exhibit L</p>
+      <h2 class="big" id="finale-title">Look behind this text.</h2>
+      <div class="panel">
+        <p>Go on. Scroll a little and watch the background catch the light.</p>
+        <p>That’s not a pattern. That’s metalflake gel coat. You’ve been reading this on a bass boat the whole time. So have I.</p>
+        <p>The answer is <span class="redact" role="button" tabindex="0" aria-expanded="false"><span class="hint">Reveal: </span>boats. Probably. Almost certainly. I need to lie down.</span></p>
+      </div>
+      <div class="verdict" aria-label="Case status">
+        <span class="stamp s-probably">Probably boats</span>
+        <span class="stamp s-unexplained">Officially unsolved</span>
+      </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer col" id="sources">
+      <div class="casenotes paper">
+        <h2>Case notes</h2>
+        <p>This page is a joke built on real facts. The facts are sourced below. The red string isn’t. Glitterex hasn’t done anything wrong except keep its client list private, which companies are allowed to do.</p>
+        <p>If you know someone who works at a glitter factory, buy them a drink. That’s how the real investigative reporters do it.</p>
+
+        <h3>Sources</h3>
+        <ol>
+          <li>Caity Weaver, “What Is Glitter?”, The New York Times, 21 Dec 2018. Details as reported by <a href="https://www.deseret.com/2022/10/20/23414804/glitter-shortage-true-false">Deseret News</a>, <a href="https://www.distractify.com/p/glitter-shortage-conspiracy-tiktok">Distractify</a> and <a href="https://attackofthefanboy.com/news/a-glitter-company-exec-once-refused-to-name-her-biggest-buyer-so-a-tiktoker-is-now-demanding-answers-are-we-eating-glitter/">Attack of the Fanboy</a></li>
+          <li><a href="https://www.wbur.org/endlessthread/2019/11/08/the-great-glitter-mystery">Endless Thread: The Great Glitter Mystery</a>, WBUR, 8 Nov 2019</li>
+          <li><a href="https://en.wikipedia.org/wiki/Glitter">Glitter</a> and <a href="https://en.wikipedia.org/wiki/Glitterex">Glitterex</a>, Wikipedia</li>
+          <li><a href="https://mrlocalhistory.org/meadowbrook-glitter-bernardsville">The world’s largest glitter factory started in Bernardsville</a>, Mr Local History; <a href="https://mail.pffc-online.com/news/16700-the-discovery-development-of-glitter">The discovery and development of glitter</a>, PFFC</li>
+          <li><a href="https://www.mentalfloss.com/culture/fashion-beauty/15-shimmering-questions-about-glitter-answered">15 shimmering questions about glitter, answered</a>, Mental Floss</li>
+          <li><a href="https://www.vice.com/en/article/the-history-of-glitter">The history of glitter</a>, Vice</li>
+          <li><a href="https://inkstickmedia.com/all-that-glitters-is-not-boat-paint/">All that glitters is not boat paint</a>, Inkstick, Sep 2023; <a href="https://tildes.net/~engineering/180y/the_inventor_of_glitter_henry_ruschmann_also_helped_develop_the_atomic_bomb">Tildes thread with the video’s sources</a>; <a href="https://www.metafilter.com/200040/The-End-of-the-Glitter-Conspiracy">MetaFilter</a></li>
+          <li><a href="https://sltrib.com/news/2018/12/21/part-byu-grads-glitter">Part of BYU grad’s glitter bomb video was faked</a>, Salt Lake Tribune, 21 Dec 2018; <a href="https://bgr.com/?p=5687200">BGR</a>; <a href="https://3news.com/youtubers-glitter-bomb-tricks-parcel-thieves/">3News</a></li>
+          <li><a href="https://www.assiniboinepark.ca/stories/44/Array">Assiniboine Park Zoo</a>; <a href="https://www.vice.com/it/article/orsi-polari-glitter-scienza-cacca/">Vice Italia</a>; <a href="https://connectsci.au/az/article/35/3/649/267417/Technique-for-faecal-marking-in-group-housed">Technique for faecal marking in group-housed wombats</a>, Australian Zoologist</li>
+          <li><a href="https://www.aafs.org/sites/default/files/media/documents/AAFS-2003-B24.pdf">Glitter: an atypical trace evidence examination</a>, FBI Laboratory, AAFS; <a href="https://longreads.com/2025/10/14/glitter-trace-evidence-crime/">Longreads</a>, Oct 2025</li>
+          <li><a href="https://amp.knowyourmeme.com/memes/glitter-conspiracy">Glitter Conspiracy</a>, Know Your Meme</li>
+          <li><a href="https://single-market-economy.ec.europa.eu/sectors/chemicals/reach/restrictions/commission-regulation-eu-20232055-restriction-microplastics-intentionally-added-products_en">Commission Regulation (EU) 2023/2055</a>, European Commission</li>
+          <li><a href="https://www.unisc.edu.au/about/unisc-news/news-archive/2023/december/microbiologist-calls-for-glitter-ban">Microbiologist calls for glitter ban</a>, University of the Sunshine Coast, Dec 2023</li>
+          <li><a href="https://sustainabilitydirectory.intertek.com/brand/glitterex-corporation">Glitterex Corporation</a>, Intertek Sustainability Directory</li>
+          <li><a href="https://www.iboats.com/goto/post?id=531727">Refinishing boat</a>, iboats forum</li>
+          <li><a href="https://www.fibreglast.com/product/using-glitterflake">Using Glitterflake</a>, Fibre Glast; boat-brand glitter flake listings for <a href="https://www.ebay.de/itm/403914564475">Tracker Boats</a> and <a href="https://www.ebay.de/itm/195705034240">MasterCraft</a>, Great Lakes Skipper</li>
+          <li><a href="https://www.heb.com/product-detail/product/116552">Crest Kid’s Cavity Protection Toothpaste, Sparkle Fun</a> ingredients, H-E-B</li>
+          <li><a href="https://open.spotify.com/episode/7IxpdEncIsMRGODhraKN5Z">JTG Mini: The Glitter Conspiracy</a>, Just The Gist, June 2026. The podcast that started this.</li>
+          <li>Extra research leads from Gemini Deep Research, checked against the sources above before use.</li>
+        </ol>
+      </div>
+      <a class="back" href="https://wolfharrold.com/">Back to wolfharrold.com</a>
+    </footer>
+  </main>
+</div>
+
+<script>
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- metalflake hull ---------- */
+  var cv = document.getElementById('hull');
+  var ctx = cv.getContext('2d');
+  var W = 0, H = 0, dpr = 1, flakes = [], base = null, pointer = 0, queued = false;
+  var COLS = [
+    [236, 226, 255], [236, 226, 255], [236, 226, 255], [236, 226, 255], [236, 226, 255],
+    [196, 150, 255], [196, 150, 255],
+    [255, 128, 222], [255, 128, 222],
+    [255, 214, 120]
+  ];
+
+  function build() {
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = window.innerWidth; H = window.innerHeight;
+    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+    var n = Math.min(Math.round(W * H / 150), 11000);
+    flakes = [];
+    for (var i = 0; i < n; i++) {
+      flakes.push({
+        x: Math.random() * W, y: Math.random() * H,
+        s: 0.7 + Math.random() * 1.9,
+        a: Math.random() * Math.PI * 2,
+        c: COLS[(Math.random() * COLS.length) | 0]
+      });
+    }
+
+    base = document.createElement('canvas');
+    base.width = cv.width; base.height = cv.height;
+    var b = base.getContext('2d');
+    b.setTransform(dpr, 0, 0, dpr, 0, 0);
+    var g = b.createRadialGradient(W * 0.3, H * 0.15, 0, W * 0.5, H * 0.5, Math.max(W, H) * 0.95);
+    g.addColorStop(0, '#5c1e66');
+    g.addColorStop(0.45, '#2b0d33');
+    g.addColorStop(1, '#16061c');
+    b.fillStyle = g; b.fillRect(0, 0, W, H);
+    for (var j = 0; j < flakes.length; j++) {
+      var f = flakes[j];
+      b.fillStyle = 'rgba(' + f.c[0] + ',' + f.c[1] + ',' + f.c[2] + ',' + (0.07 + Math.random() * 0.12) + ')';
+      b.fillRect(f.x, f.y, f.s, f.s);
+    }
+    draw();
+  }
+
+  function draw() {
+    queued = false;
+    ctx.drawImage(base, 0, 0, W, H);
+    var ph = reduce ? 0.6 : (window.scrollY * 0.0042 + pointer * 0.0016);
+    for (var i = 0; i < flakes.length; i++) {
+      var f = flakes[i];
+      var v = Math.cos(f.a + ph + f.x * 0.0045 - f.y * 0.0032);
+      if (v < 0.86) continue;
+      var k = (v - 0.86) / 0.14; k = k * k;
+      var s = f.s * (1 + k * 0.9);
+      ctx.fillStyle = 'rgba(' + f.c[0] + ',' + f.c[1] + ',' + f.c[2] + ',' + (0.3 + 0.7 * k) + ')';
+      ctx.fillRect(f.x - s / 2, f.y - s / 2, s, s);
+      if (k > 0.82) {
+        ctx.fillStyle = 'rgba(255,255,255,' + (0.55 * k) + ')';
+        ctx.fillRect(f.x - s * 2.2, f.y - 0.35, s * 4.4, 0.7);
+        ctx.fillRect(f.x - 0.35, f.y - s * 2.2, 0.7, s * 4.4);
+      }
+    }
+  }
+
+  function queue() { if (!queued) { queued = true; requestAnimationFrame(draw); } }
+
+  build();
+  var rt;
+  window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(function () { build(); layoutStrings(); }, 150); });
+  if (!reduce) {
+    window.addEventListener('scroll', queue, { passive: true });
+    window.addEventListener('pointermove', function (e) { if (e.pointerType === 'mouse') { pointer = e.clientX + e.clientY; queue(); } }, { passive: true });
+  }
+
+  /* ---------- red string ---------- */
+  var board = document.getElementById('boardEl');
+  var svg = document.getElementById('strings');
+  var LINKS = [
+    ['nj', 'hub'], ['1934', 'hub'], ['bomb', 'hub'], ['dec18', 'hub'], ['chaff', 'hub'], ['devil', 'hub'],
+    ['boats', 'hub'], ['zoo', 'hub'], ['fbi', 'hub'], ['tiktok', 'hub'], ['eu', 'hub'],
+    ['nj', '1934'], ['1934', 'bomb'], ['bomb', 'chaff'], ['dec18', 'tiktok'], ['eu', 'boats'], ['zoo', 'fbi']
+  ];
+
+  function pinPoint(id, box) {
+    var el = board.querySelector('[data-node="' + id + '"] .pin');
+    var r = el.getBoundingClientRect();
+    return { x: r.left + r.width / 2 - box.left, y: r.top + r.height / 2 - box.top };
+  }
+
+  function layoutStrings() {
+    var box = svg.getBoundingClientRect();
+    svg.setAttribute('viewBox', '0 0 ' + box.width + ' ' + box.height);
+    var out = '';
+    LINKS.forEach(function (l, i) {
+      var a = pinPoint(l[0], box), b = pinPoint(l[1], box);
+      var mx = (a.x + b.x) / 2, my = (a.y + b.y) / 2;
+      var d = Math.hypot(b.x - a.x, b.y - a.y);
+      var sag = Math.min(d * 0.1, 26);
+      out += '<path pathLength="1" style="transition-delay:' + (i * 70) + 'ms" d="M' + a.x.toFixed(1) + ',' + a.y.toFixed(1) +
+             ' Q' + mx.toFixed(1) + ',' + (my + sag).toFixed(1) + ' ' + b.x.toFixed(1) + ',' + b.y.toFixed(1) + '"/>';
+    });
+    svg.innerHTML = out;
+  }
+
+  layoutStrings();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(layoutStrings);
+
+  if (reduce || !('IntersectionObserver' in window)) {
+    board.classList.add('drawn');
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { board.classList.add('drawn'); io.disconnect(); }
+      });
+    }, { threshold: 0.35 });
+    io.observe(board);
+  }
+
+  /* ---------- redactions ---------- */
+  Array.prototype.forEach.call(document.querySelectorAll('.redact'), function (btn) {
+    function open() { btn.setAttribute('aria-expanded', 'true'); btn.removeAttribute('tabindex'); btn.removeAttribute('role'); }
+    btn.addEventListener('click', open);
+    btn.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } });
+  });
+})();
+</script>
+</body>
+</html>
