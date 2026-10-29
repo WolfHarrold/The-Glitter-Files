@@ -9,6 +9,7 @@ Live page: https://wolfharrold.github.io/The-Glitter-Files/
 - One self-contained page, `index.html`. No build step, no dependencies (fonts load from Google Fonts).
 - 11 exhibits, each with a verdict stamp and a "boring truth" note.
 - Every fact is sourced in the page's case notes. The connections between them are a joke.
+- `terminal.html` is a terminal edition of the same files, built in the Phosphor design system: one colour on black, five tabs, keyboard controls and a boot console.
 
 ## Run it locally
 
